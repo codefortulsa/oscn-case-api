@@ -1,0 +1,139 @@
+---
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "OSCN Case API"
+paths:
+  /case/{county}/{caseNumber}:
+    get:
+      description: "Gets Case Data\n"
+      operationId: "caseCountyCaseNumberGET"
+      parameters:
+      - name: "caseNumber"
+        in: "path"
+        description: "Case number to lookup"
+        required: true
+        type: "string"
+      - name: "county"
+        in: "path"
+        description: "County to lookup case in"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            type: "object"
+            title: "Case"
+            properties:
+              parties:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Party"
+              defendants:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Defendant"
+      x-swagger-router-controller: "Default"
+  /case/{county}/{caseNumber}/primary:
+    get:
+      description: "Gets case data for the primary defendant"
+      operationId: "caseCountyCaseNumberPrimaryGET"
+      parameters:
+      - name: "caseNumber"
+        in: "path"
+        description: "Case number to lookup"
+        required: true
+        type: "string"
+      - name: "county"
+        in: "path"
+        description: "County to lookup case in"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/Defendant"
+      x-swagger-router-controller: "Default"
+  /case/{county}/{caseNumber}/{defendant}:
+    get:
+      description: "Gets case data for a particular defendant"
+      operationId: "caseCountyCaseNumberDefendantGET"
+      parameters:
+      - name: "caseNumber"
+        in: "path"
+        description: "Case number to lookup"
+        required: true
+        type: "string"
+      - name: "county"
+        in: "path"
+        description: "County to lookup case in"
+        required: true
+        type: "string"
+      - name: "defendant"
+        in: "path"
+        description: "Defendant to get"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/Defendant"
+      x-swagger-router-controller: "Default"
+definitions:
+  Party:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      type:
+        type: "string"
+  Defendant:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      docket:
+        type: "array"
+        items:
+          $ref: "#/definitions/DocketEvent"
+      events:
+        type: "array"
+        items:
+          $ref: "#/definitions/Event"
+  DocketEvent:
+    type: "object"
+    properties:
+      date:
+        type: "string"
+      code:
+        type: "string"
+      description:
+        type: "string"
+      count:
+        type: "integer"
+      amount:
+        type: "number"
+  Count:
+    type: "object"
+    properties:
+      number:
+        type: "number"
+        format: "int"
+      description:
+        type: "string"
+      date:
+        type: "string"
+  Event:
+    type: "object"
+    properties:
+      date:
+        type: "string"
+      description:
+        type: "string"
+      docket:
+        type: "string"
+      reporter:
+        type: "string"

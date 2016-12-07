@@ -1,0 +1,25 @@
+{
+  "name": "oscn-case-api",
+  "version": "1.0.0",
+  "description": "An api for accessing Oklahoma State Court Network case information.",
+  "main": "server.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "keywords": [
+    "OSCN",
+    "case"
+  ],
+  "author": "Philip Kin",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "jasmine": "^2.5.2"
+  },
+  "dependencies": {
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "jsdom": "^9.8.3",
+    "rc": "^1.1.6",
+    "swagger-tools": "0.10.1"
+  }
+}
