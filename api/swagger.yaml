@@ -6,6 +6,9 @@ info:
 paths:
   /case/{county}/{caseNumber}:
     get:
+      tags: [
+        "Case Information"
+      ]
       description: "Gets Case Data\n"
       operationId: "caseCountyCaseNumberGET"
       parameters:
@@ -37,6 +40,9 @@ paths:
       x-swagger-router-controller: "Default"
   /case/{county}/{caseNumber}/primary:
     get:
+      tags: [
+        "Case Information"
+      ]
       description: "Gets case data for the primary defendant"
       operationId: "caseCountyCaseNumberPrimaryGET"
       parameters:
@@ -58,6 +64,9 @@ paths:
       x-swagger-router-controller: "Default"
   /case/{county}/{caseNumber}/{defendant}:
     get:
+      tags: [
+        "Case Information"
+      ]
       description: "Gets case data for a particular defendant"
       operationId: "caseCountyCaseNumberDefendantGET"
       parameters:
