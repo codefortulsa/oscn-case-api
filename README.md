@@ -1,4 +1,4 @@
-# oscn-case-api
+# oscn-case-api [![Build Status](https://travis-ci.org/codefortulsa/oscn-case-api.svg?branch=master)](https://travis-ci.org/codefortulsa/oscn-case-api)
 
 JSON wrapper for Oklahoma State Court Network cases.
 
