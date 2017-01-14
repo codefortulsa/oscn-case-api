@@ -4,17 +4,17 @@
   "description": "An api for accessing Oklahoma State Court Network case information.",
   "main": "server.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "mocha"
   },
   "keywords": [
     "OSCN",
-    "case"
+    "case",
+    "Oklahoma",
+    "court",
+    "OK"
   ],
   "author": "Philip Kin",
   "license": "GPL-3.0",
-  "devDependencies": {
-    "jasmine": "^2.5.2"
-  },
   "dependencies": {
     "connect": "^3.2.0",
     "js-yaml": "^3.3.0",
@@ -22,7 +22,21 @@
     "rc": "^1.1.6",
     "swagger-tools": "0.10.1"
   },
-  "engines" : {
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-register": "^6.18.0",
+    "chai": "^3.5.0",
+    "chance": "^1.0.4",
+    "dirty-chai": "^1.2.2",
+    "mocha": "^3.2.0",
+    "sinon": "^1.15.4",
+    "sinon-chai": "^2.8.0",
+    "webpack": "^1.14.0"
+  },
+  "engines": {
     "node": "6.9.1"
   }
 }
