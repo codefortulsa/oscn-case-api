@@ -6,7 +6,8 @@ This API runs on node.js. It was written against v6.9.1 but should generally
 be compatible with most node versions.
 
 ###Prerequisites
-* NodeJS
+
+* Node 6
 
 ###Running from Source
     $ git clone https://github.com/codefortulsa/oscn-case-api.git
