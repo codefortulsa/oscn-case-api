@@ -9,7 +9,7 @@ function verifyCaseNumber(caseNumber) {
     // CF 2016 6446, CF 20166446, CF2016 6446, cf20166446
     // Returns the proper: CF-2016-6446
 
-    var test = /([A-Z,a-z]{2}).?(\d{4}).?(\d{4})/g
+    var test = /([A-Z,a-z]{2})\D?(\d{4})\D?(\d*)/g
     var check = test.exec(caseNumber)
     if (check) {
         return `${check[1].toUpperCase()}-${check[2]}-${check[3]}`
