@@ -3,8 +3,24 @@ var jsdom = require("jsdom");
 
 var config = require("../config");
 
+function verifyCaseNumber(caseNumber) {
+    // Accepts the following case number variations:
+    // CF-2016-6446, CF-20166446, CF2016-6446, CF20166446
+    // CF 2016 6446, CF 20166446, CF2016 6446, cf20166446
+    // Returns the proper: CF-2016-6446
+
+    var test = /([A-Z,a-z]{2})\D?(\d{4})\D?(\d*)/g
+    var check = test.exec(caseNumber)
+    if (check) {
+        return `${check[1].toUpperCase()}-${check[2]}-${check[3]}`
+    } else {
+        return false
+    }
+}
+
 function getCaseInformation(caseNumber, county) {
   return new Promise(function(resolve, reject) {
+    caseNumber = verifyCaseNumber(caseNumber)
     if(!caseNumber || !county) {
       reject("caseNumber and county are required");
       return;
