@@ -6,13 +6,15 @@ var config = require("../config");
 function verifyCaseNumber(caseNumber) {
     // Accepts the following case number variations:
     // CF-2016-6446, CF-20166446, CF2016-6446, CF20166446
-    // CF 2016 6446, CF 20166446, CF2016 6446, cf20166446
+    // CF 2016 6446, CF 20166446, CF2016 6446, cf201664466
+	 // cf166446 cf1664666 CF16-64666 cf-16-6446
     // Returns the proper: CF-2016-6446
 
-    var test = /([A-Z,a-z]{2})\D?(\d{4})\D?(\d*)/g
+    var test = /([A-Z,a-z]{2})\D?(2\d)?(\d{2})\D?(\d*)/
     var check = test.exec(caseNumber)
     if (check) {
-        return `${check[1].toUpperCase()}-${check[2]}-${check[3]}`
+        var century = check[2] == null  ? '20' : check[2]
+        return `${check[1].toUpperCase()}-${century}${check[3]}-${check[4]}`
     } else {
         return false
     }
