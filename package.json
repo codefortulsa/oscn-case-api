@@ -20,6 +20,8 @@
     "js-yaml": "^3.3.0",
     "jsdom": "^9.8.3",
     "rc": "^1.1.6",
+    "superagent": "^3.5.2",
+    "superagent-as-promised": "^4.0.0",
     "swagger-tools": "0.10.1"
   },
   "devDependencies": {
